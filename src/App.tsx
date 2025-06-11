@@ -406,7 +406,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black text-green-400 font-mono flex flex-col">
+    <div className="h-screen bg-black text-green-400 font-mono flex flex-col">
       {/* Header */}
       <div className="border-b border-green-400 p-6">
         <div className="flex items-center justify-between">
