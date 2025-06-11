@@ -278,7 +278,7 @@ This project is created for educational and demonstration purposes. The Terminat
 
 **Created by Jin Park**
 - Instagram: [@jinparkmida](https://instagram.com/jinparkmida)
-- Specializing in AI-powered applications and immersive user experiences
+- B.Sc. Computer Science Student | Ramyeon & Redbull addict.
 
 ---
 
