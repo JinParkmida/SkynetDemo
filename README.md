@@ -170,7 +170,7 @@ Dynamic CSS animations respond to threat levels:
 - **Cost**: Free tier, no API key required
 
 ### Geolocation (IP-API)
-- **Endpoint**: `https://ip-api.com/json/`
+- **Endpoint**: `http://ip-api.com/json/`
 - **Data**: City, country, coordinates, ISP information
 - **Update Frequency**: Once per session
 - **Cost**: Free tier, no API key required
