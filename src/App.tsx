@@ -415,7 +415,7 @@ const App: React.FC = () => {
             <div>
               <h1 className="text-2xl font-bold text-red-400">SKYNET DEFENSE NETWORK</h1>
               <p className="text-sm">Cyberdyne Systems Model 101 - Terminator OS v2.4</p>
-              <p className="text-xs text-gray-400 mt-1">Developed by @ Jin Park - Insta: @jinparkmida</p>
+              <p className="text-xs text-gray-400 mt-1">Developed by @ Jin Park - <a href="https://instagram.com/jinparkmida" className="text-blue-400 hover:underline">Insta: @jinparkmida</a></p>
             </div>
           </div>
           <div className="text-right space-y-1">
