@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-black;
+}
+
 /* Threat-responsive glitch animations */
 @keyframes glitch-minimal {
   0%, 98% {
