@@ -1,0 +1,277 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-black;
+}
+
+/* Threat-responsive glitch animations */
+@keyframes glitch-minimal {
+  0%, 98% {
+    transform: translate(0);
+    filter: contrast(1.1) brightness(0.95) hue-rotate(5deg);
+  }
+  1% {
+    transform: translate(0.5px, 0);
+    filter: contrast(1.2) brightness(0.9) hue-rotate(15deg);
+  }
+  2% {
+    transform: translate(0);
+    filter: contrast(1.1) brightness(0.95) hue-rotate(5deg);
+  }
+}
+
+@keyframes glitch-elevated {
+  0%, 94% {
+    transform: translate(0);
+    filter: contrast(1.2) brightness(0.9) hue-rotate(10deg);
+  }
+  2% {
+    transform: translate(1px, 0);
+    filter: contrast(1.4) brightness(0.8) hue-rotate(30deg) saturate(1.5);
+  }
+  4% {
+    transform: translate(-1px, 0);
+    filter: contrast(1.3) brightness(0.85) hue-rotate(-10deg);
+  }
+  6% {
+    transform: translate(0);
+    filter: contrast(1.2) brightness(0.9) hue-rotate(10deg);
+  }
+}
+
+@keyframes glitch-high {
+  0%, 88% {
+    transform: translate(0);
+    filter: contrast(1.3) brightness(0.85) hue-rotate(15deg);
+  }
+  2% {
+    transform: translate(2px, 0);
+    filter: contrast(1.6) brightness(0.7) hue-rotate(60deg) saturate(2);
+  }
+  4% {
+    transform: translate(-2px, 0);
+    filter: contrast(1.8) brightness(1.1) hue-rotate(-20deg) saturate(0.6);
+  }
+  6% {
+    transform: translate(0);
+    filter: contrast(1.3) brightness(0.85) hue-rotate(15deg);
+  }
+  8% {
+    transform: translate(1px, -1px);
+    filter: contrast(1.7) brightness(0.6) hue-rotate(90deg);
+  }
+  10% {
+    transform: translate(0);
+    filter: contrast(1.3) brightness(0.85) hue-rotate(15deg);
+  }
+}
+
+@keyframes glitch-critical {
+  0%, 80% {
+    transform: translate(0);
+    filter: contrast(1.4) brightness(0.8) hue-rotate(20deg);
+  }
+  2% {
+    transform: translate(3px, 0);
+    filter: contrast(2) brightness(0.5) hue-rotate(120deg) saturate(3) invert(0.1);
+  }
+  4% {
+    transform: translate(-3px, 0);
+    filter: contrast(2.2) brightness(1.3) hue-rotate(-45deg) saturate(0.3);
+  }
+  6% {
+    transform: translate(0);
+    filter: contrast(1.4) brightness(0.8) hue-rotate(20deg);
+  }
+  8% {
+    transform: translate(2px, -2px);
+    filter: contrast(2.5) brightness(0.4) hue-rotate(180deg) invert(0.2);
+  }
+  10% {
+    transform: translate(-1px, 1px);
+    filter: contrast(1.8) brightness(1.1) hue-rotate(270deg) saturate(2);
+  }
+  12% {
+    transform: translate(0);
+    filter: contrast(1.4) brightness(0.8) hue-rotate(20deg);
+  }
+  85% {
+    transform: translate(0);
+    filter: contrast(1.4) brightness(0.8) hue-rotate(20deg);
+  }
+  87% {
+    transform: translate(-2px, 0);
+    filter: contrast(1.9) brightness(0.6) hue-rotate(90deg) saturate(2.5);
+  }
+  89% {
+    transform: translate(1px, 0);
+    filter: contrast(1.6) brightness(0.9) hue-rotate(-30deg);
+  }
+  91% {
+    transform: translate(0);
+    filter: contrast(1.4) brightness(0.8) hue-rotate(20deg);
+  }
+}
+
+/* Freeze frame effect for tension building */
+@keyframes freeze-frame {
+  0%, 95% {
+    filter: contrast(1.2) brightness(0.9);
+  }
+  96%, 98% {
+    filter: contrast(2) brightness(0.3) grayscale(1);
+    transform: scale(1.02);
+  }
+  99%, 100% {
+    filter: contrast(1.2) brightness(0.9);
+    transform: scale(1);
+  }
+}
+
+/* Base glitch effect class */
+.glitch-effect {
+  position: relative;
+  transition: all 0.1s ease-out;
+}
+
+/* Threat level specific classes */
+.glitch-minimal {
+  animation: glitch-minimal 8s infinite;
+}
+
+.glitch-elevated {
+  animation: glitch-elevated 5s infinite;
+}
+
+.glitch-high {
+  animation: glitch-high 3s infinite;
+}
+
+.glitch-critical {
+  animation: glitch-critical 2s infinite;
+}
+
+/* Scanline overlays for different threat levels */
+.glitch-effect::before,
+.glitch-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Green scanlines for low threat */
+.glitch-minimal::before {
+  background: linear-gradient(
+    90deg,
+    transparent 98%,
+    rgba(34, 197, 94, 0.1) 100%
+  );
+  background-size: 3px 100%;
+  animation: scanline-green 8s infinite;
+}
+
+/* Yellow scanlines for elevated threat */
+.glitch-elevated::before {
+  background: linear-gradient(
+    90deg,
+    transparent 97%,
+    rgba(234, 179, 8, 0.15) 100%
+  );
+  background-size: 2px 100%;
+  animation: scanline-yellow 5s infinite;
+}
+
+/* Red scanlines for high threat */
+.glitch-high::before {
+  background: linear-gradient(
+    90deg,
+    transparent 96%,
+    rgba(239, 68, 68, 0.2) 100%
+  );
+  background-size: 1px 100%;
+  animation: scanline-red 3s infinite;
+}
+
+/* Intense red scanlines for critical threat */
+.glitch-critical::before {
+  background: linear-gradient(
+    90deg,
+    transparent 95%,
+    rgba(239, 68, 68, 0.3) 100%
+  );
+  background-size: 1px 100%;
+  animation: scanline-critical 2s infinite;
+}
+
+.glitch-critical::after {
+  background: linear-gradient(
+    0deg,
+    transparent 98%,
+    rgba(239, 68, 68, 0.1) 100%
+  );
+  background-size: 100% 2px;
+  animation: scanline-horizontal 1.5s infinite;
+}
+
+@keyframes scanline-green {
+  0%, 95% { opacity: 0; }
+  96%, 100% { opacity: 1; }
+}
+
+@keyframes scanline-yellow {
+  0%, 90% { opacity: 0; }
+  91%, 100% { opacity: 1; }
+}
+
+@keyframes scanline-red {
+  0%, 85% { opacity: 0; }
+  86%, 100% { opacity: 1; }
+}
+
+@keyframes scanline-critical {
+  0%, 80% { opacity: 0; }
+  81%, 90% { opacity: 1; }
+  91%, 100% { opacity: 0; }
+}
+
+@keyframes scanline-horizontal {
+  0%, 85% { opacity: 0; }
+  86%, 95% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+
+/* Message trigger glitch */
+.message-glitch {
+  animation: freeze-frame 0.5s ease-out;
+}
+
+/* Hover effects for interactivity */
+.glitch-effect:hover {
+  filter: contrast(1.3) brightness(1.1) hue-rotate(15deg) !important;
+  transform: scale(1.01) !important;
+  transition: all 0.2s ease-out;
+}
+
+/* Performance optimization for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glitch-effect,
+  .glitch-minimal,
+  .glitch-elevated,
+  .glitch-high,
+  .glitch-critical {
+    animation: none !important;
+  }
+  
+  .glitch-effect::before,
+  .glitch-effect::after {
+    display: none;
+  }
+}
