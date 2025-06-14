@@ -43,7 +43,7 @@ SKYNET Defense Network is an advanced AI chatbot interface inspired by the Termi
 - **Open-Meteo API** - Weather and atmospheric conditions
 - **USGS Earthquake API** - Seismic activity monitoring
 - **CoinGecko API** - Economic volatility tracking (Bitcoin)
-- **IP-API** - Geolocation and network information
+- **ipapi.co** - Geolocation and network information
 
 ### UI/UX Libraries
 - **Lucide React** - Modern icon system
@@ -169,8 +169,8 @@ Dynamic CSS animations respond to threat levels:
 - **Update Frequency**: Every 5 minutes (cached)
 - **Cost**: Free tier, no API key required
 
-### Geolocation (IP-API)
-- **Endpoint**: `http://ip-api.com/json/`
+### Geolocation (ipapi.co)
+- **Endpoint**: `https://ipapi.co/json/`
 - **Data**: City, country, coordinates, ISP information
 - **Update Frequency**: Once per session
 - **Cost**: Free tier, no API key required

@@ -100,25 +100,25 @@ class APIService {
 
   async fetchGeolocationData(): Promise<GeolocationData | null> {
     try {
-      const response = await fetch('http://ip-api.com/json/');
+      const response = await fetch('https://ipapi.co/json/');
       const data = await response.json();
-      
-      if (data.status === 'success') {
+
+      if (data && !data.error) {
         return {
-          query: data.query,
-          status: data.status,
-          country: data.country,
-          countryCode: data.countryCode,
-          region: data.region,
-          regionName: data.regionName,
+          query: data.ip,
+          status: 'success',
+          country: data.country_name,
+          countryCode: data.country_code,
+          region: data.region_code,
+          regionName: data.region,
           city: data.city,
-          zip: data.zip,
-          lat: data.lat,
-          lon: data.lon,
+          zip: data.postal,
+          lat: data.latitude,
+          lon: data.longitude,
           timezone: data.timezone,
-          isp: data.isp,
+          isp: data.org,
           org: data.org,
-          as: data.as
+          as: data.asn
         };
       }
     } catch (error) {
